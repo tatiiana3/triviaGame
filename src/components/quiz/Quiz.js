@@ -11,6 +11,16 @@ import {
 
 import './QuizStyle.css';
 
+export const randomizer = (answers) => {
+    for (let i = 0; i < answers.length; i++) {
+        let randomIdx = Math.floor(Math.random() * (answers.length - 1))
+        let temp = answers[i]
+        answers[i] = answers[randomIdx]
+        answers[randomIdx] = temp
+    }
+    return answers
+}
+
 const Quiz = ({ setTriviaStatus }) => {
     const [questions, setQuestions] = React.useState([]);
     const [questionIdx, setQuestionIdx] = React.useState(0);
@@ -20,24 +30,16 @@ const Quiz = ({ setTriviaStatus }) => {
         const tenQuestions = randomizeQuestions(allQuestions)
         setQuestions(tenQuestions)
     }, [])
+
     let currQuestion = questions[questionIdx] ? questions[questionIdx] : {};
 
-    const randomizer = (answers) => {
-        for (let i = 0; i < answers.length; i++) {
-            let randomIdx = Math.floor(Math.random() * (answers.length - 1))
-            let temp = answers[i]
-            answers[i] = answers[randomIdx]
-            answers[randomIdx] = temp
-        }
-        return answers
-    }
     return (
         <Container maxWidth="sm">
             {questionIdx >= questions.length ?
                 <div>
                     <Card className="answerBox">
-                        <h3>You Finished!🎉</h3>
-                        <p>You Scored {score} out of {questions.length}</p>
+                        <h3>You Finished 🎉</h3>
+                        <p>You Scored {score} out of {questions.length}!</p>
                         <Button message="Play Again" handleSubmit={() => setTriviaStatus(false)} />
 
                     </Card>
@@ -53,12 +55,10 @@ const Quiz = ({ setTriviaStatus }) => {
                                 <Answer answers={randomizer([...currQuestion.incorrect, currQuestion.correct])} correctAnswer={currQuestion.correct} currScore={score} setScore={setScore} setQuestionIdx={setQuestionIdx} questionIdx={questionIdx} />
                             </Card>
                         </div>
-
                     }
                 </div>
             }
         </Container>
-
     )
 }
 

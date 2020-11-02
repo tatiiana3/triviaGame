@@ -1,8 +1,6 @@
 import React from 'react';
 
-
 const Score = ({ currScore }) => {
-
     return (
         <div>
             <p>SCORE: {currScore}</p>

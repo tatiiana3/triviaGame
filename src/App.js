@@ -10,7 +10,7 @@ function App() {
   const [triviaStatus, setTriviaStatus] = React.useState(false)
   return (
     <div>
-      <Navbar setTriviaStatus={setTriviaStatus} status={triviaStatus}/>
+      <Navbar setTriviaStatus={setTriviaStatus} status={triviaStatus} />
       <div className="appWrapper">
         {!triviaStatus ?
           <Intro setTriviaStatus={setTriviaStatus} />
@@ -18,8 +18,7 @@ function App() {
           <Quiz setTriviaStatus={setTriviaStatus} />
         }
       </div>
-      <Footer/>
-
+      <Footer />
     </div>
   );
 }
