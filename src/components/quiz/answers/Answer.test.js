@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Answer from './Answer';
 
 describe("<Answer/> Component", () => {
@@ -11,6 +10,4 @@ describe("<Answer/> Component", () => {
             expect(screen.getByText(answer)).toBeInTheDocument();
         })
     })
-
-
 })

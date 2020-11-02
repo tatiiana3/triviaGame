@@ -1,9 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Quiz, {randomizer} from './Quiz';
+import { randomizer } from './Quiz';
 import { randomizeQuestions, allQuestions } from '../../data'
-
 
 describe('randomizing questions and answers', () => {
     it('picks 10 random questions out of the data passed', () => {
@@ -11,7 +7,6 @@ describe('randomizing questions and answers', () => {
         expect(firstQuestions.length).toEqual(10);
         let secondQuestions = randomizeQuestions(allQuestions)
         expect(JSON.stringify(firstQuestions) === JSON.stringify(secondQuestions)).toEqual(false);
-
     })
 
     it('randomizes the answers', () => {
@@ -20,7 +15,6 @@ describe('randomizing questions and answers', () => {
         let firstRandom = randomizer(answers)
         let secRandom = randomizer(answersCopy)
         expect(JSON.stringify(secRandom) === JSON.stringify(firstRandom)).toEqual(false);
-
     })
 })
 

@@ -30,6 +30,7 @@ const Quiz = ({ setTriviaStatus }) => {
         const tenQuestions = randomizeQuestions(allQuestions)
         setQuestions(tenQuestions)
     }, [])
+
     let currQuestion = questions[questionIdx] ? questions[questionIdx] : {};
 
     return (
@@ -37,8 +38,8 @@ const Quiz = ({ setTriviaStatus }) => {
             {questionIdx >= questions.length ?
                 <div>
                     <Card className="answerBox">
-                        <h3>You Finished!🎉</h3>
-                        <p>You Scored {score} out of {questions.length}</p>
+                        <h3>You Finished 🎉</h3>
+                        <p>You Scored {score} out of {questions.length}!</p>
                         <Button message="Play Again" handleSubmit={() => setTriviaStatus(false)} />
 
                     </Card>
@@ -54,12 +55,10 @@ const Quiz = ({ setTriviaStatus }) => {
                                 <Answer answers={randomizer([...currQuestion.incorrect, currQuestion.correct])} correctAnswer={currQuestion.correct} currScore={score} setScore={setScore} setQuestionIdx={setQuestionIdx} questionIdx={questionIdx} />
                             </Card>
                         </div>
-
                     }
                 </div>
             }
         </Container>
-
     )
 }
 
