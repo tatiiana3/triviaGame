@@ -1,0 +1,27 @@
+
+.answerContainer {
+    padding: 10px;
+}
+.oneAnswer {
+    margin: 0 10%;
+    border-radius: 15px;
+    border: 1px solid;
+    border-color: lightgrey;
+    border-collapse: separate;
+    border-spacing: 15px;
+    text-align: center;
+    padding: 10px 10px;
+    cursor: pointer;
+    min-width: 50px;
+
+}
+
+.wrongAnswer {
+    background-color: #E94047;
+    font-weight: bold;
+}
+
+.selectedAnswer {
+    background-color: #68CE72;
+    font-weight: bold;
+}

@@ -1,0 +1,18 @@
+.progress {
+  background-color: #d8d8d8;
+  border-radius: 20px;
+  margin: 15px 0;
+  height: 20px;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+.meter {
+  background: #68CE72;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: bold;
+  justify-content: center;
+  height: 100%;
+  transition: width ease .5s;
+}
