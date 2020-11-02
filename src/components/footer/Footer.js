@@ -7,7 +7,10 @@ const Footer = () => {
     <div className="footerContainer">
       <div className="footerContent">
         <small>Made By Tatiana Aviles</small>
-        <small id="footerSlogan">Let's Connect on LinkedIn</small>
+        <small id="footerSlogan">
+          Let's Connect on
+         <a href="https://www.linkedin.com/in/tatianaaviles/" style={{ color: 'white' }}>LinkedIn </a>
+        </small>
       </div>
     </div>
   )
