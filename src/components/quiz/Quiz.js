@@ -11,6 +11,16 @@ import {
 
 import './QuizStyle.css';
 
+export const randomizer = (answers) => {
+    for (let i = 0; i < answers.length; i++) {
+        let randomIdx = Math.floor(Math.random() * (answers.length - 1))
+        let temp = answers[i]
+        answers[i] = answers[randomIdx]
+        answers[randomIdx] = temp
+    }
+    return answers
+}
+
 const Quiz = ({ setTriviaStatus }) => {
     const [questions, setQuestions] = React.useState([]);
     const [questionIdx, setQuestionIdx] = React.useState(0);
@@ -22,15 +32,6 @@ const Quiz = ({ setTriviaStatus }) => {
     }, [])
     let currQuestion = questions[questionIdx] ? questions[questionIdx] : {};
 
-    const randomizer = (answers) => {
-        for (let i = 0; i < answers.length; i++) {
-            let randomIdx = Math.floor(Math.random() * (answers.length - 1))
-            let temp = answers[i]
-            answers[i] = answers[randomIdx]
-            answers[randomIdx] = temp
-        }
-        return answers
-    }
     return (
         <Container maxWidth="sm">
             {questionIdx >= questions.length ?

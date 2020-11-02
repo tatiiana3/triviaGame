@@ -8,15 +8,6 @@ const Answer = ({ answers, correctAnswer, setScore, currScore, questionIdx, setQ
     const [selectedAnswer, setAnswer] = React.useState("");
     const [submitted, setSubmit] = React.useState(false)
 
-    const randomizer = (answers) => {
-        for (let i = 0; i < answers.length; i++) {
-            let randomIdx = Math.floor(Math.random() * (answers.length - 1))
-            let temp = answers[i]
-            answers[i] = answers[randomIdx]
-            answers[randomIdx] = temp
-        }
-        return answers
-    }
     const handleSubmit = () => {
         if (!selectedAnswer) {
             swal("Please Select an Option")
